@@ -80,7 +80,7 @@ const Dashboard = () => {
               </Breadcrumb>
             </Col>
             <Col xs={24} sm={24} md={8} lg={6} xl={6}>
-              <Row className="container-user" justify="center">
+              <Row className="container-user" justify="end">
                 <Col xs={3} sm={3} md={3} lg={3} xl={3}>
                   <SearchOutlined />
                 </Col>
