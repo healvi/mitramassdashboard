@@ -1,126 +1,368 @@
-@import '~antd/dist/antd.css';
+@import "~antd/dist/antd.css";
 
-.login-container  {
-    height: 100vh !important;
+.login-container {
+  height: 100vh !important;
 }
 
 .btn-create {
-    background-color: #52c41a;
-    color: white;
-    font-weight: bold;
+  background-color: #52c41a;
+  color: white;
+  font-weight: bold;
 }
 
 .form-container {
-    .ant-form-item-label {
-        text-align: left !important;
-    }
-
+  .ant-form-item-label {
+    text-align: left !important;
+  }
 }
 
 .main-dashboard-conatiner {
   .item-container {
     background-color: white;
     border-radius: 5px;
-    padding: 15px 10px;
+    padding: 20px;
     min-height: max-content;
+   
+  }
+  .item-container-full {
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px;
+    min-height: 100%;
+   
   }
 }
 
 .ant-layout {
-    .ant-layout-sider-trigger {
-        background: white !important;
-        svg {
-            color: black;
-        }
+  .ant-layout-sider-trigger {
+    background: white !important;
+    svg {
+      color: black;
     }
-    .ant-layout-sider {
-        background: white !important;
+  }
+  .ant-layout-sider {
+    background: white !important;
+  }
+  .ant-layout-header {
+    padding-left: 20px;
+    margin-left: 10px;
+    background: transparent !important;
+
+    .user-manage {
+      margin-left: 15px;
+      display: flex;
+      flex-direction: row;
+      justify-content: start;
+      align-items: center;
+      p {
+        font-size: 12px;
+        margin: 0 0 0 10px;
+      }
     }
-    .ant-layout-header {
-        padding-left: 20px;
-        margin-left: 10px;
-        background: transparent !important;
-   
-        .user-manage {
-          margin-left: 15px;
-          display: flex;
-          flex-direction: row;
-          justify-content: start;
-          align-items: center;
-            p {
-                font-size: 12px;
-                margin: 0 0 0 10px;
-            }
-        }
-    }
+  }
 }
 
 .ant-layout-content {
-    padding-left: 20px;
-    .site-layout-background {
-        padding-left: 0 !important;
+  padding-left: 20px;
+  .site-layout-background {
+    padding-left: 0 !important;
+  }
+}
+
+// Lokasi
+.lokasi-container {
+  .title {
+    h3 {
+      font-weight: bold;
+      font-size: 14px;
+    }
+  }
+  .lookall {
+    display: flex !important;
+    justify-content: end;
+
+    p {
+      color: #52c41a;
+      font-weight: 600;
+      font-size: 14px;
+    }
+  }
+  .content {
+    .ant-col {
+      .main-content {
+        background: #287600;
+        padding: 10px;
+        border-radius: 5px;
+        color: white;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        p {
+          margin: 0;
+          text-align: end;
+        }
+        p:nth-child(1) {
+          font-size: 24px;
+          font-weight: bold;
+          padding: 0;
+        }
+        p:nth-child(2) {
+          font-size: 12px;
+          font-weight: 100;
+          text-transform: capitalize;
+        }
+        .iconx {
+          font-size: 36px;
+        }
+      }
+    }
+  }
+}
+// bank
+.bank-container {
+  .title {
+    h3 {
+      font-weight: bold;
+      font-size: 14px;
+    }
+  }
+  .lookall {
+    display: flex !important;
+    justify-content: end;
+    .btn {
+      background: #287600 !important;
+      color: white;
+      border-radius: 5px;
+      font-size: 12px;
+      padding: 0 30px;
+    }
+  }
+  .main-content {
+    margin-top: 20px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    .card-bank {
+      position: relative;
+      width: 100px ;
+      height: 80px ;
+      border-radius: 10px;
+      background-image: linear-gradient(to left, red, yellow);
+      margin-right: 10px;
+      p {
+        position: absolute;
+        margin: 10px;
+        bottom: 0;
+        right: 0;
+        font-weight: bold;
+        color: white;
+        font-size: 16px;
+      }
+    }
+    .card-deskripsi {
+      max-height: 100px;
+      flex-grow: 5;
+      display: flex;
+      margin-left: 10px;
+      flex-direction: row;
+
+      .deskripsi {
+        flex-grow: 5;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        p {
+          margin: 0;
+          font-weight: bold;
+        }
+        div {
+          p {
+            color: grey;
+            font-size: 10px;
+            font-weight: 400 !important;
+          }
+        }
+      }
+      .action {
+        flex-grow: 5;
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+      }
+    }
+  }
+}
+// Relasi
+.relasi-container {
+  .title {
+    h3 {
+      font-weight: bold;
+      font-size: 14px;
+    }
+  }
+  .lookall {
+    display: flex !important;
+    justify-content: end;
+
+    p {
+      color: #52c41a;
+      font-weight: 600;
+      font-size: 14px;
+    }
+  }
+  .main-content {
+    margin-top: 20px;
+    .ant-row {
+      align-items: center;
+    }
+    .status {
+      p {
+        margin: 0;
+      }
+      p:nth-child(1) {
+        font-size: 24px;
+        font-weight: bold;
+        padding: 0;
+      }
+      p:nth-child(2) {
+        font-size: 12px;
+        font-weight: 100;
+        text-transform: capitalize;
+      }
+    }
+    .iconx {
+      font-size: 24px;
+    }
+  }
+}
+
+.aktivitas-container {
+    .title {
+      h3 {
+        font-weight: bold;
+        font-size: 14px;
+      }
+    }
+    .list-activity {
+      margin-top: 20px;
+      h3 {
+        margin: 0;
+      }
+      p {
+        margin: 0;
+        color: grey;
+      }
     }
 }
 
-@media (min-width: 1025px) and (max-width: 1280px) {
-    
-    /* CSS */
-    
-  }
-  
-  /* 
-    ##Device = Tablets, Ipads (portrait)
-    ##Screen = B/w 768px to 1024px
-  */
-  
-  @media (min-width: 768px) and (max-width: 1024px) {
-    
-    /* CSS */
-    
-  }
-  
-  /* 
-    ##Device = Tablets, Ipads (landscape)
-    ##Screen = B/w 768px to 1024px
-  */
-  
-  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-    
-    /* CSS */
-    
-  }
-  
-  /* 
-    ##Device = Low Resolution Tablets, Mobiles (Landscape)
-    ##Screen = B/w 481px to 767px
-  */
-  
-  @media (min-width: 320px) and (max-width: 767px) {
-    .ant-layout-header {
-        padding: 0 10px !important;
-    }
-    .container-user {
-        justify-content: end !important;
-    }
-    .user-manage {
-        margin-left: 5px;
-        display: flex;
-        flex-direction: row;
-        justify-content: start !important;
-        align-items: center;
-          p {
-              font-size: 12px;
-              margin: 0 0 0 5px !important;
-            //   margin-left: 5px  !important;
-          }
-      }
-      .ant-layout-content {
-        padding: 5px ;
-      }
 
-    //    Login
-    .login-container {
-
+@media (min-width: 320px) and (max-width: 1280px) {
+  .ant-layout-header {
+    padding: 0 10px !important;
+  }
+  .container-user {
+    justify-content: end !important;
+  }
+  .user-manage {
+    margin-left: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: start !important;
+    align-items: center;
+    p {
+      font-size: 12px;
+      margin: 0 0 0 5px !important;
+      //   margin-left: 5px  !important;
     }
   }
-  
+  .ant-layout-content {
+    padding: 5px;
+  }
+
+  // Lokasi
+  .lokasi-container {
+    .main-content {
+      p:nth-child(1) {
+        font-size: 14px !important;
+      }
+      p:nth-child(2) {
+        font-size: 10px !important;
+      }
+      .iconx {
+        font-size: 24px !important;
+      }
+    }
+  }
+  // bank
+  .bank-container {
+    .title {
+      h3 {
+        font-weight: bold;
+        font-size: 12px;
+      }
+    }
+    .lookall {
+      .btn {
+        background: #287600 !important;
+        font-size: 8px;
+        color: white;
+        border-radius: 5px;
+        padding: 0 10px;
+      }
+    }
+    .main-content {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .card-bank {
+      width: 100% !important;
+    }
+    .card-deskripsi {
+      margin-top: 20px;
+    }
+  }
+  .relasi-container {
+    .main-content {
+      .status {
+        p {
+          margin: 0;
+        }
+        p:nth-child(1) {
+          font-size: 12px;
+        }
+        p:nth-child(2) {
+          font-size: 8px;
+        }
+      }
+      .iconx {
+        font-size: 16px;
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .aktivitas-container {
+    .title {
+      h3 {
+        font-weight: bold;
+        font-size: 12px;
+      }
+    }
+    .list-activity {
+      margin-top: 20px;
+      h3 {
+        margin: 0;
+        font-size: 8px;
+      }
+      p {
+        margin: 0;
+        font-size: 8px;
+        color: grey;
+      }
+    }
+}
+}
