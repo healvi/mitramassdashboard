@@ -13,7 +13,7 @@ const Login = () => {
   };
   return (
     <Row justify="center" align="middle" className="login-container">
-      <Col span={8}>
+      <Col xs={20} sm={20} md={8} lg={8} xl={8}>
         <Form
           name="basic"
           labelCol={{ span: 8 }}
