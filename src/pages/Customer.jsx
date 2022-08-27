@@ -1,73 +1,115 @@
-import { Table } from "antd";
-import React from "react";
+import { Button, Modal, Space, Table } from "antd";
+import React, { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getcustomer } from "../redux/customer";
-// address: "Villa Mutiara Gading"
-// country: "Indonesia"
-// created_at: "2022-07-14T16:31:20.000000Z"
-// id: 3703
-// job_title: "programmer jago"
-// name: "Aliif Arief"
-// phone_number: "08953318"
-// status: false
-// updated_at: "2022-07-15T06:56:03.000000Z"
-const columns = [
-  {
-    title: "Name",
-    dataIndex: "name",
-    onFilter: (value, record) => record.name.indexOf(value) === 0,
-    sorter: (a, b) => a.name.localeCompare(b.name),
-    sortDirections: ["ascend", "descend"],
-  },
-  {
-    title: "Job",
-    dataIndex: "job_title",
-    sorter: (a, b) => a.name.localeCompare(b.name),
-    sortDirections: ["ascend", "descend"],
-  },
-  {
-    title: "Telfon",
-    dataIndex: "phone_number",
-  },
-  {
-    title: "Address",
-    dataIndex: "address",
-    onFilter: (value, record) => record.address.indexOf(value) === 0,
-  },
-  {
-    title: "Country",
-    dataIndex: "country",
-    onFilter: (value, record) => record.country.indexOf(value) === 0,
-  },
-  {
-    title: "Status",
-    dataIndex: "status",
-    filters: [
-      {
-        text: "Active",
-        value: true,
-      },
-      {
-        text: "inactive",
-        value: false,
-      },
-    ],
-    sorter: (a, b) => a.status - b.status,
-    sortDirections: ["ascend", "descend"],
-    onFilter: (value, record) =>
-      record.status.toString().indexOf(value.toString()) === 0,
-    render: (text, record, index) => (
-      <p>{record.status ? "Active" : "inactive"}</p>
-    ),
-  },
-];
+import { deleteCustomer, getcustomer } from "../redux/customer";
+import {
+  EditFilled,
+  RestFilled,
+  ExclamationCircleOutlined,
+} from "@ant-design/icons";
+import { Alerts, ModalCustomer } from "../components";
 
 const Customer = () => {
   const dispatch = useDispatch();
+  const [visible, setVisible] = useState({
+    isOpen: false,
+    modal: "update",
+    data: {},
+  });
+  const alert = useSelector((state) => state.alerts.alert);
+
   const customer = useSelector((state) => state.customers.customers);
-  const onChange = (pagination, filters, sorter, extra) => {
-    console.log("params", pagination, filters, sorter, extra);
+  const columns = [
+    {
+      title: "Name",
+      dataIndex: "name",
+      onFilter: (value, record) => record.name.indexOf(value) === 0,
+      sorter: (a, b) => a.name.localeCompare(b.name),
+      sortDirections: ["ascend", "descend"],
+    },
+    {
+      title: "Job",
+      dataIndex: "job_title",
+      sorter: (a, b) => a.name.localeCompare(b.name),
+      sortDirections: ["ascend", "descend"],
+    },
+    {
+      title: "Telfon",
+      dataIndex: "phone_number",
+    },
+    {
+      title: "Address",
+      dataIndex: "address",
+      onFilter: (value, record) => record.address.indexOf(value) === 0,
+    },
+    {
+      title: "Country",
+      dataIndex: "country",
+      onFilter: (value, record) => record.country.indexOf(value) === 0,
+    },
+    {
+      title: "Status",
+      dataIndex: "status",
+      filters: [
+        {
+          text: "Active",
+          value: true,
+        },
+        {
+          text: "In Active",
+          value: false,
+        },
+      ],
+      sorter: (a, b) => a.status - b.status,
+      sortDirections: ["ascend", "descend"],
+      onFilter: (value, record) =>
+        record.status.toString().indexOf(value.toString()) === 0,
+      render: (text, record, index) => (
+        <p>{record.status ? "Active" : "In Active"}</p>
+      ),
+    },
+    {
+      title: "Action",
+      dataIndex: "",
+      render: (text, record, index) => (
+        <div>
+          <EditFilled
+            style={{
+              fontSize: "20px",
+              color: "#08c",
+              marginRight: "10px",
+              cursor: "pointer",
+            }}
+            onClick={() =>
+              setVisible({ modal: "update", isOpen: true, data: record })
+            }
+          />
+          <RestFilled
+            style={{
+              fontSize: "20px",
+              color: "#f5222d",
+              cursor: "pointer",
+            }}
+            onClick={() => confirmDelete(record)}
+          />
+        </div>
+      ),
+    },
+  ];
+  const datapush = async (data) => {
+    const { id } = data;
+    await dispatch(deleteCustomer({ id: id }));
+  };
+  const confirmDelete = (data) => {
+    Modal.confirm({
+      title: "Confirm",
+      icon: <ExclamationCircleOutlined />,
+      content: "APakah Benar Anda Ingin Menghapus ini",
+      okText: "Oke",
+      cancelText: "Cancel",
+      onOk: () => datapush(data),
+    });
   };
   useEffect(() => {
     dispatch(getcustomer());
@@ -76,15 +118,22 @@ const Customer = () => {
   return (
     <div>
       {customer.length ? (
-        <Table
-          columns={columns}
-          dataSource={customer}
-          onChange={onChange}
-          rowKey="id"
-        />
+        <>
+          <Alerts data={alert} />
+          <Space style={{ marginBottom: 16, marginTop: 16 }}>
+            <Button
+              onClick={() => setVisible({ modal: "create", isOpen: true })}
+              className="btn-create"
+            >
+              Create New Data
+            </Button>
+          </Space>
+          <Table columns={columns} dataSource={customer} rowKey="id" />
+        </>
       ) : (
         <div>Loading</div>
       )}
+      <ModalCustomer visible={visible} setVisible={setVisible} />
     </div>
   );
 };

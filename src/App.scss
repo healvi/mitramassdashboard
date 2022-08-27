@@ -3,3 +3,16 @@
 .login-container  {
     height: 100vh !important;
 }
+
+.btn-create {
+    background-color: #52c41a;
+    color: white;
+    font-weight: bold;
+}
+
+.form-container {
+    .ant-form-item-label {
+        text-align: left !important;
+    }
+
+}
