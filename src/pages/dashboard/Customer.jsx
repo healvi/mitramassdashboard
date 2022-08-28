@@ -8,7 +8,7 @@ import {
   RestFilled,
   ExclamationCircleOutlined,
 } from "@ant-design/icons";
-import { Alerts, ModalCustomer } from "../../components";
+import { Alerts, Loading, ModalCustomer } from "../../components";
 
 const Customer = () => {
   const dispatch = useDispatch();
@@ -131,7 +131,7 @@ const Customer = () => {
           <Table columns={columns} dataSource={customer} rowKey="id" />
         </>
       ) : (
-        <div>Loading</div>
+        <Loading />
       )}
       <ModalCustomer visible={visible} setVisible={setVisible} />
     </div>

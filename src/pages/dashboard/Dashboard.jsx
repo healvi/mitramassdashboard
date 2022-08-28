@@ -8,7 +8,7 @@ import {
 import { Avatar, Breadcrumb, Col, Image, Layout, Menu, Row } from "antd";
 import React, { useEffect, useState } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
-const { Header, Content, Footer, Sider } = Layout;
+const { Header, Content, Sider } = Layout;
 
 function getItem(label, key, icon, url) {
   return {
@@ -45,7 +45,7 @@ const Dashboard = () => {
         onCollapse={(value) => setCollapsed(value)}
       >
         <div className="logo">
-          <AppstoreOutlined />
+          <AppstoreOutlined onClick={() => navigate("/")} />
         </div>
         <Menu
           theme="light"

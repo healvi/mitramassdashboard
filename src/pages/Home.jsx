@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import Cards from "../components/molekul/Cards";
-import Navbar from "../components/molekul/Navbar";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteCustomer, getcustomer } from "../redux/customer";
 import { Modal } from "antd";
 import { ExclamationCircleOutlined } from "@ant-design/icons";
-import { Alerts, ModalCustomer } from "../components";
+import { Alerts, ModalCustomer, Loading, Cards, Navbar } from "../components";
 import Checkbox from "../components/atoms/Checkbox";
 const Home = () => {
   const dispatch = useDispatch();
@@ -139,20 +137,14 @@ const Home = () => {
                   Sort Name {ascend ? "ASC" : "DSC"}
                 </div>
                 <Checkbox status={status} setStatus={setStatus} />
-                {/* <div
-                  onClick={() => filterData(newCustomer)}
-                  className="mt-2 basis-1/4 text-center mx-3 hover bg-gray-800 text-white px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Filter {status ? "Active" : "In Aactive"}
-                </div> */}
               </div>
             </div>
           </div>
           <div className="flex flex-row flex-wrap">
             {newCustomer?.map((data, i) => (
-              <div className="sm:basis-4/4 md:basis-1/4 p-4">
+              <div className="sm:basis-4/4 md:basis-2/4 lg:basis-1/4 p-4">
                 <Cards
-                  key={i}
+                  key={data.id}
                   data={data}
                   confirmDelete={confirmDelete}
                   setVisible={setVisible}
@@ -162,7 +154,7 @@ const Home = () => {
           </div>
         </>
       ) : (
-        <div>Loading</div>
+        <Loading />
       )}
       <ModalCustomer visible={visible} setVisible={setVisible} />
     </>
