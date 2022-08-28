@@ -16,7 +16,6 @@ const rootReducer = combineReducers({
   customers : customerReducer,
   alerts: alertReducer,
   favorites: favoritesReducer,
-  
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
