@@ -32,6 +32,7 @@ const Dashboard = () => {
   useEffect(() => {
     let active = items.find((v) => v.url === location.pathname);
     setMenuActive(active.key);
+    document.title = "Dashboard";
   }, [menuActive, navigate, location]);
   return (
     <Layout

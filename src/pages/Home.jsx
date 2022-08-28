@@ -98,6 +98,7 @@ const Home = () => {
     if (customer.length) {
       setNewCustomer(filterData(customer));
     }
+    document.title = "Home";
   }, [dispatch, customer, favorite]);
   return (
     <>
