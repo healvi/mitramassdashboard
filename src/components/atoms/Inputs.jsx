@@ -1,5 +1,5 @@
 import { Form, Input } from "antd";
-import React, { useEffect } from "react";
+import React from "react";
 
 const Inputs = ({ previous, label, name, rules, type = "text" }) => {
   return (

@@ -1,8 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {
-  deleteAuthSession,
   saveAuthSession,
-  SaveSession,
 } from "../Utils/Session";
 import { axioscall } from "../Utils/axios";
 const initialState = {

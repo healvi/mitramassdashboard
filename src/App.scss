@@ -1,7 +1,7 @@
+@import './variables';
 .loading {
   height: 100vh;
-  align-items: center;
-  justify-content: center;
+  @include centered-flex
 }
 .login-container {
   height: 100vh !important;
@@ -33,11 +33,11 @@
   height: 420px !important;
   cursor: pointer;
   &:hover { 
-    border-color: #52c41a ;
+    border-color: $MainBrandColor ;
   }
 
   &:active { 
-    border-color: #52c41a ;
+    border-color: $MainBrandColor ;
   }
 }
 
@@ -46,7 +46,7 @@
   margin: 16px 16px 72px 16px; 
   text-align: center;
   font-size: 36px;
-  color: green;
+  color: $GreenBrandColor;
   background: rgba(255, 255, 255, 0.3);
   cursor: pointer;
 }
@@ -54,11 +54,11 @@
   height: 32px;
   text-align: center;
   font-size: 36px;
-  color: green;
+  color: $GreenBrandColor;
 }
 .btn-create {
-  background-color: #52c41a;
-  color: white;
+  background-color: $MainBrandColor;
+  color: $WhiteBrandColor;
   font-weight: bold;
 }
 
@@ -70,20 +70,20 @@
 
 .main-dashboard-conatiner {
   .item-container-nopadd {
-    background-color: white;
+    background-color: $WhiteBrandColor;
     border-radius: 5px;
     min-height: 100%;
    
   }
   .item-container {
-    background-color: white;
+    background-color: $WhiteBrandColor;
     border-radius: 5px;
     padding: 20px;
     min-height: max-content;
    
   }
   .item-container-full {
-    background-color: white;
+    background-color: $WhiteBrandColor;
     border-radius: 5px;
     padding: 20px;
     min-height: 100%;
@@ -93,13 +93,13 @@
 
 .ant-layout {
   .ant-layout-sider-trigger {
-    background: white !important;
+    background: $WhiteBrandColor !important;
     svg {
-      color: black;
+      color: $BlueBrandColor;
     }
   }
   .ant-layout-sider {
-    background: white !important;
+    background: $WhiteBrandColor !important;
   }
   .ant-layout-header {
     padding-left: 20px;
@@ -108,12 +108,10 @@
     padding: 0 20px ;
     .user-manage {
       margin-left: 15px;
-      display: flex;
-      flex-direction: row;
-      justify-content: start;
-      align-items: center;
+      @include flex-row;
+      @include start-center-flex;
       p {
-        font-size: 12px;
+        @include font-normal;
         margin: 0 0 0 10px;
       }
     }
@@ -129,8 +127,7 @@
 // biodata
 .biodata-container {
   .image-container {
-    display: flex;
-    flex-direction: column;
+    @include flex-column;
     align-items: center;
     .avatar-biodata {
       margin: -50px;
@@ -139,32 +136,30 @@
   }
   .info-container {
     margin-top: 90px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
+    @include flex-column;
+    @include centered-flex;
     .underscore {
       text-decoration: underline;
     }
     .iconx {
-        font-size: 12px;
-        color :#52c41a;
+        @include font-normal;
+        color :$MainBrandColor;
         margin-right: 12px;
         cursor: pointer;
     }
     p {
       margin: 0;
-      font-size: 12px;
+      @include font-normal;
     }
     h3 {
       font-weight: bold;
       margin: 0;
     }
     .primary-text {
-      color: #52c41a;
+      color: $MainBrandColor;
     }
     .secondary-text {
-      color: grey;
+      color: $BorderBrandColor;
     }
     .sunting {
       margin: 20px 0;
@@ -182,14 +177,13 @@
           font-weight: 500;
         }
         div {
-          display: flex;
-          flex-direction: row;
+          @include flex-row;
           justify-content: space-between;
           p {
             font-weight: bold;
           }
           button {
-            background: green;
+            background: $GreenBrandColor;
           }
         }
       }
@@ -201,8 +195,7 @@
 .lokasi-container {
   .title {
     h3 {
-      font-weight: bold;
-      font-size: 14px;
+      @include font-semi-medium-bold;
     }
   }
   .lookall {
@@ -210,33 +203,32 @@
     justify-content: end;
 
     p {
-      color: #52c41a;
-      font-weight: 600;
-      font-size: 14px;
+      color: $MainBrandColor;
+      
+      @include font-semi-medium-halfbold;
     }
   }
   .content {
     .ant-col {
       .main-content {
-        background: #287600;
+        background: $GreenBrandColor;
         padding: 10px;
         border-radius: 5px;
-        color: white;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+        color: $WhiteBrandColor;
+        @include flex-row;
+        @include between-center-flex;
         align-items: center;
         p {
           margin: 0;
           text-align: end;
         }
         p:nth-child(1) {
-          font-size: 24px;
+          @include font-big;;
           font-weight: bold;
           padding: 0;
         }
         p:nth-child(2) {
-          font-size: 12px;
+          @include font-normal;
           font-weight: 100;
           text-transform: capitalize;
         }
@@ -251,33 +243,30 @@
 .bank-container {
   .title {
     h3 {
-      font-weight: bold;
-      font-size: 14px;
+      @include font-semi-medium-bold;
     }
   }
   .lookall {
     display: flex !important;
     justify-content: end;
     .btn {
-      background: #287600 !important;
-      color: white;
+      background: $GreenBrandColor !important;
+      color: $WhiteBrandColor;
       border-radius: 5px;
-      font-size: 12px;
+      @include font-normal;
       padding: 0 30px;
     }
   }
   .main-content {
     margin-top: 20px;
-
-    display: flex;
-    flex-direction: row;
+    @include flex-row;
     justify-content: center;
     .card-bank {
       position: relative;
       width: 100px ;
       height: 80px ;
       border-radius: 10px;
-      background-image: linear-gradient(to right, rgb(243, 255, 17), rgb(79, 255, 3));
+      background-image: linear-gradient(to right, $YellowBrandColor, $MainBrandColor);
       margin-right: 10px;
       p {
         position: absolute;
@@ -285,21 +274,19 @@
         bottom: 0;
         right: 0;
         font-weight: bold;
-        color: white;
-        font-size: 16px;
+        color: $WhiteBrandColor;
+        @include font-medium;
       }
     }
     .card-deskripsi {
       max-height: 100px;
       flex-grow: 5;
-      display: flex;
+      @include flex-row;
       margin-left: 10px;
-      flex-direction: row;
 
       .deskripsi {
         flex-grow: 5;
-        display: flex;
-        flex-direction: column;
+        @include flex-column;
         justify-content: space-between;
         p {
           margin: 0;
@@ -307,16 +294,15 @@
         }
         div {
           p {
-            color: grey;
-            font-size: 10px;
+            color: $BorderBrandColor;
+            @include font-small;
             font-weight: 400 !important;
           }
         }
       }
       .action {
         flex-grow: 5;
-        display: flex;
-        flex-direction: row;
+        @include flex-row;
         justify-content: end;
       }
     }
@@ -326,8 +312,8 @@
 .relasi-container {
   .title {
     h3 {
-      font-weight: bold;
-      font-size: 14px;
+
+      @include font-semi-medium-bold;
     }
   }
   .lookall {
@@ -335,9 +321,9 @@
     justify-content: end;
 
     p {
-      color: #52c41a;
-      font-weight: 600;
-      font-size: 14px;
+      color: $MainBrandColor;
+      
+      @include font-semi-medium-halfbold;
     }
   }
   .main-content {
@@ -350,18 +336,17 @@
         margin: 0;
       }
       p:nth-child(1) {
-        font-size: 24px;
-        font-weight: bold;
+        @include font-big-bold;
         padding: 0;
       }
       p:nth-child(2) {
-        font-size: 12px;
+        @include font-normal;
         font-weight: 100;
         text-transform: capitalize;
       }
     }
     .iconx {
-      font-size: 24px;
+      @include font-big;;
     }
   }
 }
@@ -369,19 +354,18 @@
 .aktivitas-container {
     .title {
       h3 {
-        font-weight: bold;
-        font-size: 14px;
+        @include font-semi-medium-bold;
       }
     }
     .list-activity {
       margin-top: 20px;
       h3 {
         margin: 0;
-        font-size: 14px;
+        @include font-semi-medium;
       }
       p {
         margin: 0;
-        color: grey;
+        color: $BorderBrandColor;
       }
     }
 }
@@ -414,7 +398,7 @@
 .notfound .notfound-404 h3 {
   font-family: 'Cabin', sans-serif;
   position: relative;
-  font-size: 16px;
+  @include font-medium;
   font-weight: 700;
   text-transform: uppercase;
   color: #262626;
@@ -425,7 +409,7 @@
 .notfound h3{
   font-family: 'Cabin', sans-serif;
   position: relative;
-  font-size: 16px;
+  @include font-medium;
   font-weight: 700;
   text-transform: uppercase;
   color: #262626;
@@ -449,8 +433,8 @@
   font-size: 252px;
   font-weight: 900;
   margin: 0px;
-  color: #FAC53F;
-  -webkit-text-stroke: 5px #1374b8;
+  color: $OrangeBrandColor;
+  -webkit-text-stroke: 5px $BlueBrandColor;
   text-transform: uppercase;
   letter-spacing: -40px;
   margin-left: -20px;
@@ -465,7 +449,7 @@
   font-size: 20px;
   font-weight: 400;
   text-transform: uppercase;
-  color: #000;
+  color: $BlueBrandColor;
   margin-top: 0px;
   margin-bottom: 25px;
 }
@@ -480,14 +464,12 @@
   }
   .user-manage {
     margin-left: 5px;
-    display: flex;
-    flex-direction: row;
-    justify-content: start !important;
-    align-items: center;
+    @include flex-row;
+    @include start-center-flex;
     p {
-      font-size: 12px;
+      @include font-normal;
       margin: 0 0 0 5px !important;
-      //   margin-left: 5px  !important;
+
     }
   }
   .ant-layout-content {
@@ -498,13 +480,13 @@
   .lokasi-container {
     .main-content {
       p:nth-child(1) {
-        font-size: 14px !important;
+        @include font-semi-medium;
       }
       p:nth-child(2) {
-        font-size: 10px !important;
+        @include font-small;
       }
       .iconx {
-        font-size: 24px !important;
+        @include font-big;
       }
     }
   }
@@ -512,23 +494,21 @@
   .bank-container {
     .title {
       h3 {
-        font-weight: bold;
-        font-size: 12px;
+        @include font-small-bold;
       }
     }
     .lookall {
       .btn {
-        background: #287600 !important;
-        font-size: 8px;
-        color: white;
+        background: $GreenBrandColor !important;
+             @include font-verysmall;
+        color: $WhiteBrandColor;
         border-radius: 5px;
         padding: 0 10px;
       }
     }
     .main-content {
       margin-top: 20px;
-      display: flex;
-      flex-direction: column;
+      @include flex-column;
       justify-content: center;
     }
     .card-bank {
@@ -545,14 +525,14 @@
           margin: 0;
         }
         p:nth-child(1) {
-          font-size: 12px;
+          @include font-normal;
         }
         p:nth-child(2) {
-          font-size: 8px;
-        }
-      }
-      .iconx {
-        font-size: 16px;
+               @include font-verysmall;
+              }
+            }
+            .iconx {
+              @include font-medium;
         margin-right: 10px;
       }
     }
@@ -561,20 +541,20 @@
   .aktivitas-container {
     .title {
       h3 {
-        font-weight: bold;
-        font-size: 12px;
+
+        @include font-normal-bold;
       }
     }
     .list-activity {
       margin-top: 20px;
       h3 {
         margin: 0;
-        font-size: 8px;
+        @include font-verysmall;
       }
       p {
         margin: 0;
-        font-size: 8px;
-        color: grey;
+        @include font-verysmall;
+        color: $BorderBrandColor;
       }
     }
 }
