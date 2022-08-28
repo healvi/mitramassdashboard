@@ -1,8 +1,23 @@
-@import "~antd/dist/antd.css";
+
 
 .login-container {
   height: 100vh !important;
 }
+.hover {
+  cursor: pointer;
+}
+.card-container {
+  height: 400px !important;
+  cursor: pointer;
+  &:hover { 
+    border-color: #52c41a ;
+  }
+
+  &:active { 
+    border-color: #52c41a ;
+  }
+}
+
 .logo {
   height: 32px;
   margin: 16px 16px 72px 16px; 

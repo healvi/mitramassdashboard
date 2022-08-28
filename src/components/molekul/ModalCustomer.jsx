@@ -15,13 +15,15 @@ const ModalCustomer = ({ visible, setVisible }) => {
     if (!(visible.modal === "create")) {
       form.resetFields();
       form.setFieldsValue(visible.data);
+      console.log("crashh");
     }
-  }, [form, visible, dispatch, alert]);
+  }, [form, visible.data, dispatch]);
+  // dispatch, alert, visible, form
   const handleOk = async () => {
     setConfirmLoading(true);
     try {
       const values = await form.validateFields();
-      if (confirmLoading && visible.modal === "create") {
+      if (visible.modal === "create") {
         Modal.confirm({
           title: "Confirm",
           icon: <ExclamationCircleOutlined />,
