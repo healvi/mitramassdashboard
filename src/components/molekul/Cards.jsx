@@ -18,23 +18,43 @@ const Cards = ({ data, setVisible, confirmDelete }) => {
             <div className="w-full text-center mt-20"></div>
           </div>
           <div className="text-center mt-6">
-            <h3 className="text-2xl text-slate-700 font-bold leading-normal mb-1">
+            <h4 className="text-2xl text-slate-700 font-bold leading-normal mb-1">
               {data.name}
-            </h3>
+            </h4>
             <div className="text-xs mt-0 mb-2 text-slate-400 font-bold uppercase">
               <i className="fas fa-map-marker-alt mr-2 text-slate-400 opacity-75"></i>
               {data.country}
-              <span
-                className={`${
-                  data.status
-                    ? `bg-green-500 dark:bg-green-200`
-                    : `bg-red-500 dark:bg-red-200`
-                } dark:text-white-900 text-white-800 text-xs font-bold ml-4 mr-2 px-2.5 py-0.5 rounded `}
-              >
-                {data.status ? "Active" : "In Active"}
-              </span>
             </div>
-            <h3 className="text-sm mb-1">
+            <div className="text-xs mt-0 mb-2 text-slate-400 font-bold uppercase">
+              <i className="fas fa-map-marker-alt mr-2 text-slate-400 opacity-75"></i>
+              {data["phone_number"]}
+            </div>
+
+            <div className="flex justify-center lg:pt-2 pt-8 pb-0">
+              <div className="p-3 text-center">
+                <span className="text-sm font-bold block uppercase tracking-wide text-slate-700">
+                  {data["job_title"]}
+                </span>
+                <span className="text-sm text-slate-400">Job</span>
+              </div>
+              <div className="p-3 text-center">
+                <span className="text-sm font-bold block uppercase tracking-wide text-slate-700">
+                  {data.status ? "Active" : "In Active"}
+                </span>
+                <span className="text-sm text-slate-400">Status</span>
+              </div>
+            </div>
+            <div className="flex justify-center lg:pt-2 pt-0 pb-0">
+              <div className="p-3 text-center">
+                <span className="text-xs font-bold block uppercase tracking-wide text-slate-700">
+                  {data.address}
+                </span>
+                <span className="text-sm text-slate-400">Address</span>
+              </div>
+            </div>
+          </div>
+          <div className="flex justify-center lg:pt-2 pt-0 pb-0">
+            <h6 className="text-sm mb-1">
               <EditFilled
                 style={{
                   fontSize: "20px",
@@ -54,29 +74,7 @@ const Cards = ({ data, setVisible, confirmDelete }) => {
                 }}
                 onClick={() => confirmDelete(data)}
               />
-            </h3>
-            <div className="flex justify-center lg:pt-4 pt-8 pb-0">
-              <div className="p-3 text-center">
-                <span className="text-sm font-bold block uppercase tracking-wide text-slate-700">
-                  {data["job_title"]}
-                </span>
-                <span className="text-sm text-slate-400">Job</span>
-              </div>
-              <div className="p-3 text-center">
-                <span className="text-sm font-bold block uppercase tracking-wide text-slate-700">
-                  {data["phone_number"]}
-                </span>
-                <span className="text-sm text-slate-400">Number</span>
-              </div>
-            </div>
-            <div className="flex justify-center lg:pt-4 pt-2 pb-0">
-              <div className="p-3 text-center">
-                <span className="text-xs font-bold block uppercase tracking-wide text-slate-700">
-                  {data.address}
-                </span>
-                <span className="text-sm text-slate-400">Address</span>
-              </div>
-            </div>
+            </h6>
           </div>
         </div>
       </div>

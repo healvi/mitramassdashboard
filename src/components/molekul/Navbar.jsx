@@ -3,7 +3,7 @@ import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useEffect } from "react";
-
+import { AppstoreOutlined } from "@ant-design/icons";
 const navigation = [{ name: "Dashboard", href: "/dashboard", current: true }];
 
 function classNames(...classes) {
@@ -38,16 +38,7 @@ export default function Navbar({
               </div>
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex-shrink-0 flex items-center">
-                  <img
-                    className="block lg:hidden h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=500"
-                    alt="Workflow"
-                  />
-                  <img
-                    className="hidden lg:block h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=500"
-                    alt="Workflow"
-                  />
+                  <AppstoreOutlined className="logo-nav" />
                 </div>
                 <div className="hidden sm:block sm:ml-6 md:flex flex-row flex-1">
                   <div className="flex basis-2/4 space-x-4">
@@ -71,50 +62,10 @@ export default function Navbar({
                         setVisible({ modal: "create", isOpen: true })
                       }
                       className="hover bg-green-900 text-white px-3 py-2 rounded-md text-sm font-medium"
+                      aria-current={"page"}
                     >
                       Create New Data
                     </div>
-                    <div
-                      onClick={() => sortData()}
-                      className="hover bg-green-900 text-white px-3 py-2 rounded-md text-sm font-medium"
-                    >
-                      Sort Name {ascend ? "ASC" : "DSC"}
-                    </div>
-                    <div
-                      onClick={() => filterData()}
-                      className="hover bg-green-900 text-white px-3 py-2 rounded-md text-sm font-medium"
-                    >
-                      Filter {status ? "Active" : "In Aactive"}
-                    </div>
-                  </div>
-                  <div className="flex basis-2/4 space-x-4">
-                    <label class="relative block flex-1">
-                      <span class="sr-only">Search</span>
-                      <span class="absolute inset-y-0 left-0 flex items-center pl-2">
-                        <svg
-                          class="h-5 w-5 fill-slate-300"
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 20 20"
-                          strokeWidth={1.5}
-                          stroke="currentColor"
-                          className="w-6 h-6"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-                          />
-                        </svg>
-                      </span>
-                      <input
-                        class="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
-                        placeholder="Search for anything..."
-                        type="text"
-                        onChange={(v) => searchData(v.target.value)}
-                        name="search"
-                      />
-                    </label>
                   </div>
                 </div>
               </div>
