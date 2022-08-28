@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {
+  getSession,
   saveAuthSession,
 } from "../Utils/Session";
 import { axioscall } from "../Utils/axios";
@@ -38,11 +39,14 @@ export const userReducer = createSlice({
 
 
 const authLogin = (form) => async (dispatch) => {
-  console.log(form);
   await axioscall.post('/auth/login', form).then((response) => {
     dispatch(getUser(response.data))
+    const token = getSession("token");
+    if (token === undefined || token === null) {
+      window.location.reload()
+    }
     saveAuthSession(response.data)
-    window.location.reload()
+  
   }).catch((e) => {
     console.log(e);
   })
