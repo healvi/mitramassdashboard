@@ -13,7 +13,7 @@ const biodata = () => {
         <Image
           width={`100%`}
           height={100}
-          src="http://placeimg.com/640/480/arch"
+          src="http://placeimg.com/160/120/arch"
         />
         <Avatar
           className="avatar-biodata"

@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { axiosauth } from "../Utils/axios";
+import { axiosauth} from "../Utils/axios";
 import { setAlertGlobal } from "./alertRedux";
 const initialState = {
   customers: {},
@@ -30,11 +30,7 @@ const getcustomer = () => async (dispatch) => {
       dispatch(setcustomer(response.data.data))
     })
     .catch((e) => {
-      dispatch(setAlertGlobal({
-        message: "Request Gagal",
-        status: "error",
-        show: true
-    }))
+console.log(e);
     });
 }
 
