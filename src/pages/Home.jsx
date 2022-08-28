@@ -14,7 +14,7 @@ const Home = () => {
     modal: "update",
     data: {},
   });
-  const customer = useSelector((state) => state.customers.customers);
+  let customer = useSelector((state) => state.customers.customers);
   const alert = useSelector((state) => state.alerts.alert);
   const datapush = async (data) => {
     const { id } = data;
@@ -30,12 +30,33 @@ const Home = () => {
       onOk: () => datapush(data),
     });
   };
+  const sortData = () => {
+    let olddata = [...customer];
+    let data = olddata.sort((a, b) => a.name.localeCompare(b.name));
+  };
+  const filterData = () => {
+    let olddata = [...customer];
+    let data = olddata.filter((v) => v.status === true);
+  };
+  const searchData = (value) => {
+    let olddata = [...customer];
+    let data = olddata.filter((obj) =>
+      Object.values(obj).some((val) =>
+        val ? val.toString().toLowerCase().includes(value) : false
+      )
+    );
+  };
   useEffect(() => {
     dispatch(getcustomer());
   }, [dispatch]);
   return (
     <>
-      <Navbar setVisible={setVisible} />
+      <Navbar
+        setVisible={setVisible}
+        sortData={sortData}
+        filterData={filterData}
+        searchData={searchData}
+      />
       {customer.length ? (
         <>
           <Alerts data={alert} />
