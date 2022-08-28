@@ -128,19 +128,31 @@ const Home = () => {
                       name="search"
                     />
                   </label>
+                  <div
+                    onClick={() =>
+                      setVisible({ modal: "create", isOpen: true })
+                    }
+                    className="create hover bg-green-900 text-white px-3 py-2 rounded-md text-sm font-medium"
+                    aria-current={"page"}
+                  >
+                    +
+                  </div>
                 </div>
 
                 <div
                   onClick={() => sortData()}
-                  className="mt-2 basis-1/4 text-center mx-3 hover bg-gray-800 text-white px-3 py-3 rounded-md text-sm font-medium"
+                  className="sm:text-small mt-2 basis-1/4 text-center mx-3 hover bg-gray-800 text-white px-3 py-3 rounded-md md:text-sm font-medium"
                 >
-                  Sort Name {ascend ? "ASC" : "DSC"}
+                  <p className="text-small">
+                    Sort Name {ascend ? "ASC" : "DSC"}
+                  </p>
                 </div>
+
                 <Checkbox status={status} setStatus={setStatus} />
               </div>
             </div>
           </div>
-          <div className="flex flex-row flex-wrap">
+          <div className="flex flex-row flex-wrap justify-center">
             {newCustomer?.map((data, i) => (
               <div className="sm:basis-4/4 md:basis-2/4 lg:basis-1/4 p-4">
                 <Cards

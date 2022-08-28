@@ -64,6 +64,7 @@ const Dashboard = () => {
                 style={{
                   margin: "16px 0",
                 }}
+                separator=">"
               >
                 <Breadcrumb.Item
                   style={{

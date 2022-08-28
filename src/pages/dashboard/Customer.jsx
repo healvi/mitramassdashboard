@@ -116,7 +116,7 @@ const Customer = () => {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className="customer-container">
       {customer.length ? (
         <>
           <Alerts data={alert} />
