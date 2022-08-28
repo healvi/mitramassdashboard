@@ -5,6 +5,7 @@ import FormCustomer from "./FormCustomer";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { createCustomer, updateCustomer } from "../../redux/customer";
+import { getNumber } from "../../Utils/getNumber";
 const ModalCustomer = ({ visible, setVisible }) => {
   const dispatch = useDispatch();
   const [form] = Form.useForm();
@@ -14,7 +15,10 @@ const ModalCustomer = ({ visible, setVisible }) => {
   useEffect(() => {
     if (!(visible.modal === "create")) {
       form.resetFields();
-      form.setFieldsValue(visible.data);
+      form.setFieldsValue({
+        ...visible.data,
+        phone_number: getNumber(visible.data["phone_number"]),
+      });
       console.log("crashh");
     }
   }, [form, visible.data, dispatch]);

@@ -34,6 +34,7 @@ const FormCustomer = ({ data = {}, isUpdate = false }) => {
           previous={isUpdate ? data["phone_number"] : ""}
           label="Phone Number"
           name="phone_number"
+          type="number"
           rules={[
             {
               required: true,
@@ -42,7 +43,6 @@ const FormCustomer = ({ data = {}, isUpdate = false }) => {
           ]}
         ></Inputs>
         <Selects
-          // previous={isUpdate ? [data.status] : []}
           rules={[
             {
               required: true,

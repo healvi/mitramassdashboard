@@ -40,7 +40,11 @@
     border-color: $MainBrandColor ;
   }
 }
-
+.ant-modal-footer {
+  button .ant-btn-primary{
+    background-color: $BlueBrandColor;
+  }
+}
 .logo {
   height: 32px;
   margin: 16px 16px 72px 16px; 
