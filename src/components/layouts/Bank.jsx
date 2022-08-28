@@ -49,6 +49,39 @@ const Bank = () => {
                   </div>
                 </div>
               </Col>
+              <Col span={24}>
+                <div className="main-content">
+                  <div className="card-bank">
+                    <p>Visa</p>
+                  </div>
+                  <div className="card-deskripsi">
+                    <div className="deskripsi">
+                      <p>Bank Bukopin</p>
+                      <div>
+                        <p>****-912838 - Si Tampan</p>
+                        <p>USD</p>
+                      </div>
+                    </div>
+                    <div className="action">
+                      <EditOutlined
+                        style={{
+                          fontSize: "20px",
+                          color: "#52c41a",
+                          marginRight: "10px",
+                          cursor: "pointer",
+                        }}
+                      />
+                      <RestFilled
+                        style={{
+                          fontSize: "20px",
+                          color: "#f5222d",
+                          cursor: "pointer",
+                        }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </Col>
             </Row>
           </Col>
         </Row>

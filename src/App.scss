@@ -3,7 +3,14 @@
 .login-container {
   height: 100vh !important;
 }
-
+.logo {
+  height: 32px;
+  margin: 16px 16px 72px 16px; 
+  text-align: center;
+  font-size: 36px;
+  color: green;
+  background: rgba(255, 255, 255, 0.3);
+}
 .btn-create {
   background-color: #52c41a;
   color: white;
@@ -17,6 +24,12 @@
 }
 
 .main-dashboard-conatiner {
+  .item-container-nopadd {
+    background-color: white;
+    border-radius: 5px;
+    min-height: 100%;
+   
+  }
   .item-container {
     background-color: white;
     border-radius: 5px;
@@ -68,7 +81,77 @@
     padding-left: 0 !important;
   }
 }
+// biodata
+.biodata-container {
+  .image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .avatar-biodata {
+      margin: -50px;
+      border: solid 2px rgb(104, 100, 100);
+    }
+  }
+  .info-container {
+    margin-top: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    .underscore {
+      text-decoration: underline;
+    }
+    .iconx {
+        font-size: 12px;
+        color :#52c41a;
+        margin-right: 12px;
+        cursor: pointer;
+    }
+    p {
+      margin: 0;
+      font-size: 12px;
+    }
+    h3 {
+      font-weight: bold;
+      margin: 0;
+    }
+    .primary-text {
+      color: #52c41a;
+    }
+    .secondary-text {
+      color: grey;
+    }
+    .sunting {
+      margin: 20px 0;
+      font-weight: 500;
+    }
+    .info-biodata {
+      text-align: start;
+      padding: 20px;
+      .info {
+        margin-top: 10px;
+        p:nth-child(1) {
+          margin-bottom: 5px;
+        }
+        p:nth-child(2) {
+          font-weight: 500;
+        }
+        div {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          p {
+            font-weight: bold;
+          }
+          button {
+            background: green;
+          }
+        }
+      }
 
+    }
+  }
+}
 // Lokasi
 .lokasi-container {
   .title {
@@ -149,7 +232,7 @@
       width: 100px ;
       height: 80px ;
       border-radius: 10px;
-      background-image: linear-gradient(to left, red, yellow);
+      background-image: linear-gradient(to right, rgb(243, 255, 17), rgb(79, 255, 3));
       margin-right: 10px;
       p {
         position: absolute;
@@ -249,6 +332,7 @@
       margin-top: 20px;
       h3 {
         margin: 0;
+        font-size: 14px;
       }
       p {
         margin: 0;

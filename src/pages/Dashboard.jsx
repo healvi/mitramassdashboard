@@ -3,6 +3,7 @@ import {
   PieChartOutlined,
   BellOutlined,
   SearchOutlined,
+  AppstoreOutlined,
 } from "@ant-design/icons";
 import { Avatar, Breadcrumb, Col, Image, Layout, Menu, Row } from "antd";
 import React, { useEffect, useState } from "react";
@@ -43,7 +44,9 @@ const Dashboard = () => {
         collapsed={collapsed}
         onCollapse={(value) => setCollapsed(value)}
       >
-        <div className="logo" />
+        <div className="logo">
+          <AppstoreOutlined />
+        </div>
         <Menu
           theme="light"
           defaultSelectedKeys={["1"]}
