@@ -15,7 +15,10 @@ export const Routers = () => {
             path="/"
             exact
             element={
+              <Middleware.Guest>
                 <Home />
+              </Middleware.Guest>
+               
             }
           />
           <Route

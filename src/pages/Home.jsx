@@ -9,6 +9,9 @@ import { ExclamationCircleOutlined } from "@ant-design/icons";
 import { Alerts, ModalCustomer } from "../components";
 const Home = () => {
   const dispatch = useDispatch();
+  const [status, setStatus] = useState(true);
+  const [ascend, setAscend] = useState(true);
+  const [newCustomer, setNewCustomer] = useState([]);
   const [visible, setVisible] = useState({
     isOpen: false,
     modal: "update",
@@ -32,11 +35,21 @@ const Home = () => {
   };
   const sortData = () => {
     let olddata = [...customer];
-    let data = olddata.sort((a, b) => a.name.localeCompare(b.name));
+    let data = [];
+    if (ascend) {
+      data = olddata.sort((a, b) => a.name.localeCompare(b.name));
+      setAscend(!ascend);
+    } else {
+      data = olddata.sort((a, b) => b.name.localeCompare(a.name));
+      setAscend(!ascend);
+    }
+    setNewCustomer(data);
   };
   const filterData = () => {
     let olddata = [...customer];
-    let data = olddata.filter((v) => v.status === true);
+    let data = olddata.filter((v) => v.status === status);
+    setStatus(!status);
+    setNewCustomer(data);
   };
   const searchData = (value) => {
     let olddata = [...customer];
@@ -45,9 +58,11 @@ const Home = () => {
         val ? val.toString().toLowerCase().includes(value) : false
       )
     );
+    setNewCustomer(data);
   };
   useEffect(() => {
     dispatch(getcustomer());
+    setNewCustomer(customer);
   }, [dispatch]);
   return (
     <>
@@ -56,12 +71,14 @@ const Home = () => {
         sortData={sortData}
         filterData={filterData}
         searchData={searchData}
+        ascend={ascend}
+        status={status}
       />
-      {customer.length ? (
+      {newCustomer.length ? (
         <>
           <Alerts data={alert} />
           <div className="flex flex-row flex-wrap">
-            {customer?.map((data) => (
+            {newCustomer?.map((data) => (
               <div className="basis-1/4 p-4">
                 <Cards
                   data={data}

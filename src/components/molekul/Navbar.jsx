@@ -2,6 +2,7 @@
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { useEffect } from "react";
 
 const navigation = [{ name: "Dashboard", href: "/dashboard", current: true }];
 
@@ -14,7 +15,10 @@ export default function Navbar({
   sortData,
   filterData,
   searchData,
+  ascend,
+  status,
 }) {
+  useEffect(() => {}, [ascend, status]);
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
@@ -74,13 +78,13 @@ export default function Navbar({
                       onClick={() => sortData()}
                       className="hover bg-green-900 text-white px-3 py-2 rounded-md text-sm font-medium"
                     >
-                      Sort Name
+                      Sort Name {ascend ? "ASC" : "DSC"}
                     </div>
                     <div
                       onClick={() => filterData()}
                       className="hover bg-green-900 text-white px-3 py-2 rounded-md text-sm font-medium"
                     >
-                      Filter Status
+                      Filter {status ? "Active" : "In Aactive"}
                     </div>
                   </div>
                   <div className="flex basis-2/4 space-x-4">
