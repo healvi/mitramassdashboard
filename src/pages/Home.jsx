@@ -6,6 +6,7 @@ import { Modal } from "antd";
 import { ExclamationCircleOutlined } from "@ant-design/icons";
 import { Alerts, ModalCustomer, Loading, Cards, Navbar } from "../components";
 import Checkbox from "../components/atoms/Checkbox";
+import { setFavoriteGlobal } from "../redux/favoriteRedux";
 const Home = () => {
   const dispatch = useDispatch();
   const [status, setStatus] = useState({
@@ -20,6 +21,7 @@ const Home = () => {
     data: {},
   });
   let customer = useSelector((state) => state.customers.customers);
+  let favorite = useSelector((state) => state.favorites.favorites);
   const alert = useSelector((state) => state.alerts.alert);
   const datapush = async (data) => {
     const { id } = data;
@@ -48,8 +50,17 @@ const Home = () => {
 
     setNewCustomer(filterData(data));
   };
-  const filterData = (datas) => {
-    let olddata = [...datas];
+  const filterData = (value) => {
+    let datas = [...value];
+    const olddata = datas.map((data) => ({
+      ...data,
+      isFavorite:
+        favorite !== undefined
+          ? favorite.find((fav) => fav.id === data.id)
+            ? true
+            : false
+          : false,
+    }));
     let data = [];
     console.log(status);
     if (status.active && status.inactive) {
@@ -64,6 +75,9 @@ const Home = () => {
 
     setNewCustomer(data);
     return data;
+  };
+  const setFavorite = (data) => {
+    dispatch(setFavoriteGlobal({ favorite, data }));
   };
   const searchData = (value) => {
     let olddata = [...customer];
@@ -84,7 +98,7 @@ const Home = () => {
     if (customer.length) {
       setNewCustomer(filterData(customer));
     }
-  }, [dispatch, customer]);
+  }, [dispatch, customer, favorite]);
   return (
     <>
       <Navbar
@@ -160,6 +174,7 @@ const Home = () => {
                   data={data}
                   confirmDelete={confirmDelete}
                   setVisible={setVisible}
+                  setFavorite={setFavorite}
                 />
               </div>
             ))}

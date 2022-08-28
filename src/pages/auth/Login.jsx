@@ -10,7 +10,12 @@ const Login = () => {
   const [loading, setLoading] = useState(false);
   const onFinish = (values) => {
     setLoading(true);
-    dispatch(authLogin(values));
+    dispatch(
+      authLogin({
+        email: "akun9@mig.id",
+        password: "0901584B",
+      })
+    );
   };
 
   return (
@@ -19,6 +24,7 @@ const Login = () => {
         <Form
           name="normal_login"
           className="login-form bg-gray-800"
+          autoComplete="false"
           initialValues={{
             remember: true,
           }}
@@ -39,6 +45,7 @@ const Login = () => {
             <Input
               prefix={<UserOutlined className="site-form-item-icon" />}
               placeholder="email"
+              defaultValue={"akun9@mig.id"}
             />
           </Form.Item>
           <Form.Item
@@ -54,6 +61,7 @@ const Login = () => {
               prefix={<LockOutlined className="site-form-item-icon" />}
               type="password"
               placeholder="Password"
+              defaultValue={"0901584B"}
             />
           </Form.Item>
 

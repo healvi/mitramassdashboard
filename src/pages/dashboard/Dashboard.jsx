@@ -118,13 +118,7 @@ const Dashboard = () => {
           }}
         >
           {/* content */}
-          <div
-            className="site-layout-background"
-            style={{
-              padding: 24,
-              minHeight: 360,
-            }}
-          >
+          <div className="site-layout-background">
             <Outlet />
           </div>
         </Content>

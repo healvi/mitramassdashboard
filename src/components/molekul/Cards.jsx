@@ -1,6 +1,11 @@
 import React from "react";
-import { EditFilled, RestFilled } from "@ant-design/icons";
-const Cards = ({ data, setVisible, confirmDelete }) => {
+import {
+  EditFilled,
+  RestFilled,
+  LikeOutlined,
+  LikeFilled,
+} from "@ant-design/icons";
+const Cards = ({ data, setVisible, confirmDelete, setFavorite }) => {
   return (
     <>
       <div className="border-solid border-2 border-sky-500 relative card-container max-w-md mx-auto md:max-w-2xl mt-6 min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-xl mt-16">
@@ -59,7 +64,7 @@ const Cards = ({ data, setVisible, confirmDelete }) => {
                 style={{
                   fontSize: "20px",
                   color: "#08c",
-                  marginRight: "10px",
+
                   cursor: "pointer",
                 }}
                 onClick={() =>
@@ -71,9 +76,31 @@ const Cards = ({ data, setVisible, confirmDelete }) => {
                   fontSize: "20px",
                   color: "#f5222d",
                   cursor: "pointer",
+                  marginLeft: "15px",
                 }}
                 onClick={() => confirmDelete(data)}
               />
+              {data.isFavorite ? (
+                <LikeFilled
+                  style={{
+                    fontSize: "20px",
+                    color: "#287600",
+                    cursor: "pointer",
+                    marginLeft: "15px",
+                  }}
+                  onClick={() => setFavorite(data)}
+                />
+              ) : (
+                <LikeOutlined
+                  style={{
+                    fontSize: "20px",
+                    color: "#287600",
+                    cursor: "pointer",
+                    marginLeft: "15px",
+                  }}
+                  onClick={() => setFavorite(data)}
+                />
+              )}
             </h6>
           </div>
         </div>

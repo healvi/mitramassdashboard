@@ -72,6 +72,7 @@ const Customer = () => {
     {
       title: "Action",
       dataIndex: "",
+      fixed: "right",
       render: (text, record, index) => (
         <div>
           <EditFilled
@@ -128,7 +129,14 @@ const Customer = () => {
               Create New Data
             </Button>
           </Space>
-          <Table columns={columns} dataSource={customer} rowKey="id" />
+          <Table
+            columns={columns}
+            dataSource={customer}
+            rowKey="id"
+            scroll={{
+              x: 1300,
+            }}
+          />
         </>
       ) : (
         <Loading />

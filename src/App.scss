@@ -7,8 +7,14 @@
   overflow: hidden;
 }
 
-
-
+.ant-table-cell-fix-right, .ant-table-cell-fix-right-first, .ant-table-cell-fix-right, .ant-table-cell-fix-right-first {
+  width: 100px !important;
+  
+}
+.site-layout-background {
+  padding: 24px;
+  min-height : 36px;
+}
 .login-container {
   height: 100vh !important;
   .ant-col {
@@ -468,6 +474,10 @@
   visibility: hidden;
 }
 @media (min-width: 320px) and (max-width: 1280px) {
+  .site-layout-background {
+    padding: 5px;
+    min-height : 36px;
+  }
   .create {
     visibility: visible;
   }
