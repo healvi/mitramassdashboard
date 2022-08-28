@@ -1,6 +1,6 @@
 import { Row, Col } from "antd";
 import React from "react";
-import { Aktivitas, Biodata, Bank, Lokasi, Relasi } from "../components";
+import { Aktivitas, Biodata, Bank, Lokasi, Relasi } from "../../components";
 const MainDashboard = () => {
   return (
     <Row gutter={[48, 24]} className="main-dashboard-conatiner">

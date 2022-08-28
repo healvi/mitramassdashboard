@@ -20,8 +20,8 @@ function getItem(label, key, icon, url) {
 }
 
 const items = [
-  getItem("Main Dashboard", "1", <PieChartOutlined />, "/"),
-  getItem("Customer", "2", <DesktopOutlined />, "/Customer"),
+  getItem("Main Dashboard", "1", <PieChartOutlined />, "/dashboard"),
+  getItem("Customer", "2", <DesktopOutlined />, "/dashboard/customer"),
 ];
 
 const Dashboard = () => {

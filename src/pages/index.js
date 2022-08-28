@@ -1,6 +1,6 @@
-import Customer from "./Customer";
+import Customer from "./dashboard/Customer";
 import Login from "./auth/Login";
-import MainDashboard from "./MainDashboard";
-import Dashboard from "./Dashboard";
+import MainDashboard from "./dashboard/MainDashboard";
+import Dashboard from "./dashboard/Dashboard";
 
 export {MainDashboard, Customer, Login,Dashboard}

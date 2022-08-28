@@ -2,13 +2,13 @@ import { Button, Modal, Space, Table } from "antd";
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteCustomer, getcustomer } from "../redux/customer";
+import { deleteCustomer, getcustomer } from "../../redux/customer";
 import {
   EditFilled,
   RestFilled,
   ExclamationCircleOutlined,
 } from "@ant-design/icons";
-import { Alerts, ModalCustomer } from "../components";
+import { Alerts, ModalCustomer } from "../../components";
 
 const Customer = () => {
   const dispatch = useDispatch();
